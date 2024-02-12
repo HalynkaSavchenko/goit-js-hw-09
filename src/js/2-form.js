@@ -3,11 +3,11 @@ const localStorageKey = 'feedback-form-state';
 const form = document.querySelector(".feedback-form");
 
 function readFormData(form) {
-    const mail = form.email.value;
-    const feedback = form.message.value;
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
     return {
-        mail,
-        feedback
+        email,
+        message
     }
 }
 
@@ -20,8 +20,8 @@ form.addEventListener("input", (event) => {
 const rawData = localStorage.getItem(localStorageKey);
 if (rawData){
     const data = JSON.parse(rawData);
-    form.email.value = data.mail.trim();
-    form.message.value = data.feedback.trim();
+    form.email.value = data.email;
+    form.message.value = data.message;
 }
 
 form.addEventListener("submit", (event) => {

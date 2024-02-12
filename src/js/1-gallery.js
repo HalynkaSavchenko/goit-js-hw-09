@@ -86,14 +86,5 @@ function createGalleryMarkup(images) {
     ).join("")
 };
 
-const lightbox = new SimpleLightbox('.gallery a', {captionsData: 'alt',});
+const lightbox = new SimpleLightbox('.gallery a', {captionsData: 'alt', captionDelay: 250,});
 
-lightbox.on('show.simplelightbox', function () {
-  const currentImage = lightbox.currentImage();
-
-  const altText = currentImage.alt;
-  
-  const altCaption = document.createElement('p');
-  altCaption.textContent = altText;
-  
-});
